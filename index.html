@@ -1069,43 +1069,61 @@
             </div>
 
             <div class="flex flex-col lg:flex-row gap-10">
+                
                 <!-- Form -->
-                <div class="lg:w-1/2">
-                    <form class="bg-white p-8 md:p-10 rounded-2xl shadow-sm space-y-6" onsubmit="handleSubmit(event)">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="form-group">
-                                <input type="text" id="name" placeholder=" " class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm">
-                                <label for="name">Nombre</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder=" " class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm">
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" placeholder=" " class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm">
-                            <label for="phone">Teléfono</label>
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-dark text-sm font-medium mb-2">Asunto</label>
-                            <select id="subject" class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm text-gray-600">
-                                <option value="">Selecciona una opción</option>
-                                <option value="reservation">Reserva</option>
-                                <option value="event">Evento especial</option>
-                                <option value="feedback">Comentarios</option>
-                                <option value="other">Otro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="4" placeholder=" " class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm resize-none"></textarea>
-                            <label for="message">Mensaje</label>
-                        </div>
-                        <button type="submit" class="w-full md:w-auto bg-primary-500 hover:bg-primary-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 text-sm tracking-wide">
-                            ENVIAR MENSAJE
-                        </button>
-                    </form>
-                </div>
+<div class="lg:w-1/2">
+    <form name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="bg-white p-8 md:p-10 rounded-2xl shadow-sm space-y-6">
+        
+        <!-- Campo anti-spam (oculto) -->
+        <p class="hidden">
+            <label>No rellenar esto: <input name="bot-field" /></label>
+        </p>
 
+        <!-- Obligatorio para Netlify -->
+        <input type="hidden" name="form-name" value="contacto" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="form-group">
+                <input type="text" name="name" id="name" placeholder=" " required
+                       class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm">
+                <label for="name">Nombre</label>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder=" " required
+                       class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm">
+                <label for="email">Email</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="tel" name="phone" id="phone" placeholder=" "
+                   class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm">
+            <label for="phone">Teléfono</label>
+        </div>
+
+        <div>
+            <label for="subject" class="block text-dark text-sm font-medium mb-2">Asunto</label>
+            <select name="subject" id="subject" required
+                    class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm text-gray-600">
+                <option value="">Selecciona una opción</option>
+                <option value="Reserva">Reserva</option>
+                <option value="Evento especial">Evento especial</option>
+                <option value="Comentarios">Comentarios</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea name="message" id="message" rows="4" placeholder=" " required
+                      class="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition text-sm resize-none"></textarea>
+            <label for="message">Mensaje</label>
+        </div>
+
+        <button type="submit" class="w-full md:w-auto bg-primary-500 hover:bg-primary-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 text-sm tracking-wide">
+            ENVIAR MENSAJE
+        </button>
+    </form>
+</div>
                 <!-- Info -->
                 <div class="lg:w-1/2">
                     <div class="bg-dark text-white p-8 md:p-10 rounded-2xl h-full relative overflow-hidden">
